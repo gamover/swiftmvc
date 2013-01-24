@@ -5,10 +5,10 @@
     "version": "0.0.1",
     "repository": {
         "type": "git",
-        "url": "git@cvs.lan:nodemvcfw.git"
+        "url": "git@cvs.lan:swift.git"
     },
     "dependencies": {
-        "express": "3.0.5"
+        "express": "3.0.*"
     },
     "devDependencies": {},
     "optionalDependencies": {},
