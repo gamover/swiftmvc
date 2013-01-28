@@ -3,4 +3,4 @@
  * Date: 20.01.13
  * Time: 18:07
  */
-module.exports = require('./lib/swift.js');
+module.exports = require('./lib/swift');
