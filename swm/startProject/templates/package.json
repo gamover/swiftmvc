@@ -1,0 +1,12 @@
+{
+    "name": "application-name",
+    "version": "0.0.1",
+    "private": true,
+    "scripts": {
+        "start": "node app"
+    },
+    "dependencies": {
+        "swig": "0.13.4",
+        "consolidate": "0.7.0"
+    }
+}
