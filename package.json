@@ -1,11 +1,11 @@
 {
     "author": "G@mOBEP <rusmiran@gmail.com>",
-    "name": "swift",
+    "name": "swiftmvc",
     "description": "mvc framework",
     "version": "0.2.1",
     "repository": {
         "type": "git",
-        "url": "git@cvs.lan:swift.git"
+        "url": "https://github.com/gamover/swiftmvc.git"
     },
     "dependencies": {
         "express": "3.0.5"
