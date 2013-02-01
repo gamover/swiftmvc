@@ -13,7 +13,7 @@ var _fs = require('fs'),
 
 if (command === 'startProject')
 {
-    var dbuilder = new (require('./lib/utils/dbuilder').Dbuilder)();
+    var dbuilder = new (require('dbuilder').Dbuilder)();
 
     dbuilder
         .setTemplatesPath(__dirname + '/swm/startProject/templates')
