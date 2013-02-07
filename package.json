@@ -2,7 +2,7 @@
     "author": "G@mOBEP <rusmiran@gmail.com>",
     "name": "swiftmvc",
     "description": "mvc framework",
-    "version": "0.3.0",
+    "version": "0.3.1",
     "repository": {
         "type": "git",
         "url": "https://github.com/gamover/swiftmvc.git"
