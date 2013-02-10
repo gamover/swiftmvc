@@ -1,11 +1,15 @@
-exports.indexAction = function (mod)
+var __controller = module.exports = exports = function (modul)
 {
-    mod.get(function (req, res)
+    this.addAction('index', function indexAction (controller)
     {
-        var model = mod.getModel('model');
-
-        mod.render('index', {
-            'text': model.getText()
+        this.get(function (req, res)
+        {
+            modul.getModel('model', function(err, model)
+            {
+                modul.render({
+                    'text': model.getText(true)
+                });
+            });
         });
     });
 };
