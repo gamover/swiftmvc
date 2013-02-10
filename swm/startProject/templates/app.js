@@ -1,4 +1,4 @@
-var _swift = require('swift'),
+var _swift = require('swiftmvc'),
     _path = require('path'),
     _swig = require('swig'),
     _consolidate = require('consolidate');
