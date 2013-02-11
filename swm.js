@@ -7,13 +7,15 @@
 var _fs = require('fs'),
     _path = require('path'),
 
+    Dbuilder = require('dbuilder').Dbuilder,
+
     execDirPath = global.process.env.PWD,
     args = global.process.argv.slice(2),
     command = args[0];
 
 if (command === 'startProject')
 {
-    var dbuilder = new (require('dbuilder').Dbuilder)();
+    var dbuilder = new Dbuilder();
 
     dbuilder
         .setTemplatesPath(__dirname + '/swm/startProject/templates')
