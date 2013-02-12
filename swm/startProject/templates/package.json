@@ -6,7 +6,7 @@
         "start": "node app"
     },
     "dependencies": {
-        "swiftmvc": "git+https://github.com/gamover/swiftmvc.git#v.1.0",
+        "swiftmvc": "git+https://github.com/gamover/swiftmvc.git#v.1.1",
         "swig": "0.13.4",
         "consolidate": "0.7.0"
     }

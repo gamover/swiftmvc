@@ -1,15 +1,16 @@
-var __controller = module.exports = exports = function (modul)
+var _swift = require('swift'),
+
+    modul = _swift.modules.get('index'),
+    model = modul.requireModel('model'),
+
+    _endvars_;
+
+exports.indexAction = function ()
 {
-    this.addAction('index', function indexAction (controller)
+    this.get(function ()
     {
-        this.get(function (req, res)
-        {
-            modul.getModel('model', function(err, model)
-            {
-                modul.render({
-                    'text': model.getText(true)
-                });
-            });
+        this.render(null, {
+            'text': model.getText(true)
         });
     });
 };
