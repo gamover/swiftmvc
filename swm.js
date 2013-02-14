@@ -9,8 +9,8 @@ var _fs = require('fs'),
 
     Dbuilder = require('dbuilder').Dbuilder,
 
-    execDirPath = global.process.env.PWD,
-    args = global.process.argv.slice(2),
+    execDirPath = process.env.PWD,
+    args = process.argv.slice(2),
     command = args[0];
 
 if (command === 'startProject')
