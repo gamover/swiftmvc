@@ -2,13 +2,13 @@
     "author": "G@mOBEP <rusmiran@gmail.com>",
     "name": "swiftmvc",
     "description": "mvc framework",
-    "version": "1.2.0",
+    "version": "1.3.0",
     "repository": {
         "type": "git",
         "url": "https://github.com/gamover/swiftmvc.git"
     },
     "dependencies": {
-        "express": "3.0.5",
+        "express": "3.1.0",
         "dbuilder": "git+https://github.com/gamover/dbuilder.git"
     },
     "devDependencies": {},
