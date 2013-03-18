@@ -4,14 +4,13 @@
  * Time: 20:31
  */
 
-var _fs = require('fs'),
-    _path = require('path'),
-
-    Dbuilder = require('dbuilder').Dbuilder,
+var Dbuilder = require('dbuilder').Dbuilder,
 
     execDirPath = process.env.PWD,
     args = process.argv.slice(2),
-    command = args[0];
+    command = args[0],
+
+    structure = require('./swm/startProject/structure');
 
 if (command === 'startProject')
 {
@@ -20,7 +19,7 @@ if (command === 'startProject')
     dbuilder
         .setTemplatesPath(__dirname + '/swm/startProject/templates')
         .setDestination(execDirPath)
-        .setStructure(JSON.parse(_fs.readFileSync(__dirname + '/swm/startProject/structure.json', 'UTF-8')))
+        .setStructure(structure)
         .build()
     ;
 }
