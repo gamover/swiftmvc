@@ -1,6 +1,6 @@
 var _swift = require('swiftmvc'),
 
-    modul = _swift.require('[index]/model/model'),
+    model = _swift.require('[index]/model/model'),
 
     _endvars_;
 

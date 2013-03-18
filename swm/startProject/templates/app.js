@@ -1,4 +1,4 @@
-var _swift = require('swiftmvc'),
+var _swift = require('swift'),
     _path = require('path'),
     _swig = require('swig'),
     _consolidate = require('consolidate');
@@ -14,20 +14,20 @@ _swig.init({
 app.configure(function () {
     app.set('view engine', 'swig');
     app.use(_swift.express.favicon());
+    app.use(_swift.express.static(_path.join(__dirname, 'public')));
     app.use(_swift.express.logger('dev'));
+    app.use(_swift.router.endslash);
     app.use(_swift.express.bodyParser());
     app.use(_swift.express.methodOverride());
-    app.use(_swift.router.endslash);
-    app.use(_swift.router.route);
     app.use(app.router);
-    app.use(_swift.express.static(_path.join(__dirname, 'public')));
 });
 
 app.configure('development', function(){
+    app.use(function (req, res) { throw new Error().status = 404; });
     app.use(_swift.express.errorHandler());
 });
 
 _swift.modules
     .load('index')
-    .run()
+    .run(function (err) { if (err) console.log(err); })
 ;
