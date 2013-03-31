@@ -10,7 +10,7 @@ var Dbuilder = require('dbuilder').Dbuilder,
     args = process.argv.slice(2),
     command = args[0],
 
-    structure = require('./swm/startProject/structure');
+    struct = require('./swm/startProject/structure');
 
 if (command === 'startProject')
 {
@@ -19,7 +19,7 @@ if (command === 'startProject')
     dbuilder
         .setTemplatesPath(__dirname + '/swm/startProject/templates')
         .setDestination(execDirPath)
-        .setStructure(structure)
+        .setStruct(struct)
         .build()
     ;
 }
