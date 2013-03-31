@@ -1,33 +1,33 @@
-var _swift = require('swiftmvc'),
-    _path = require('path'),
-    _swig = require('swig'),
-    _consolidate = require('consolidate');
+var $swift = require('swiftmvc'),
+    $path = require('path'),
+    $swig = require('swig'),
+    $consolidate = require('consolidate');
 
-var app = _swift();
-app.engine('.swig', _consolidate.swig);
+var app = $swift();
+app.engine('.swig', $consolidate.swig);
 
-_swig.init({
-    'root': _swift.config.path.app + '/view',
+$swig.init({
+    'root': $swift.config.path.app + '/view',
     'allowErrors': true
 });
 
 app.configure(function () {
     app.set('view engine', 'swig');
-    app.use(_swift.express.favicon());
-    app.use(_swift.express.static(_path.join(__dirname, 'public')));
-    app.use(_swift.express.logger('dev'));
-    app.use(_swift.router.endslash);
-    app.use(_swift.express.bodyParser());
-    app.use(_swift.express.methodOverride());
+    app.use($swift.express.favicon());
+    app.use($swift.express.static($path.join(__dirname, 'public')));
+    app.use($swift.express.logger('dev'));
+    app.use($swift.router.endslash);
+    app.use($swift.express.bodyParser());
+    app.use($swift.express.methodOverride());
     app.use(app.router);
 });
 
 app.configure('development', function(){
     app.use(function (req, res) { throw new Error().status = 404; });
-    app.use(_swift.express.errorHandler());
+    app.use($swift.express.errorHandler());
 });
 
-_swift.modules
+$swift.modules
     .load('index')
     .run(function (err) { if (err) console.log(err); })
 ;

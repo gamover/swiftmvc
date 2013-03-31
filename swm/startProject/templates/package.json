@@ -1,12 +1,12 @@
 {
-    "name": "application-name",
+    "name": "Swift Application",
     "version": "0.0.1",
     "private": true,
     "scripts": {
         "start": "node app"
     },
     "dependencies": {
-        "swiftmvc": "git+https://github.com/gamover/swiftmvc.git#v.1.3",
+        "swiftmvc": "*",
         "swig": "0.13.5",
         "consolidate": "0.8.0"
     }

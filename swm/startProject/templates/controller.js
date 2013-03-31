@@ -1,15 +1,13 @@
 var _swift = require('swiftmvc'),
 
-    model = _swift.require('[index]/model/model'),
+    model = _swift.require('[index]/model/model');
 
-    _endvars_;
-
-exports.indexAction = function ()
+exports.indexAction = function indexAction ()
 {
     this.get(function (req, res)
     {
         res.render({
-            'text': model.getText(true)
+            text: model.getText(true)
         });
     });
 };

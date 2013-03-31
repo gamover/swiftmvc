@@ -1,5 +1,8 @@
 module.exports = {
-    "index": {
-        "path": "/"
+    index: {
+        module: 'index',
+        controller: 'index',
+        action: 'index',
+        path: '/'
     }
 };
