@@ -1,31 +1,62 @@
-var $swift = require('swiftmvc'),
-    $path = require('path'),
-    $swig = require('swig'),
-    $consolidate = require('consolidate');
+var $path = require('path'),
 
-var app = $swift();
+    $swift = require('swiftmvc'),
+    $express = $swift.express,
+    $consolidate = require('consolidate'),
+    $swig = require('swig'),
+
+    app = $swift.init().app;
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// настройка приложения
+//
+
+app.configure(function ()
+{
+    app.set('view engine', 'swig');
+
+    app.use($express.favicon());
+    app.use($express.static($path.join(__dirname, 'public')));
+});
+
+app.configure('production', 'test', function ()
+{
+//    app.use($express.logger());
+    app.use($express.bodyParser());
+//    app.use($swift.dbManager.connector());
+    app.use($swift.router.endslash);
+    app.use(app.router);
+    app.use(function (req, res) { throw new Error().status = 404; });
+});
+
+app.configure('development', function ()
+{
+    app.use($express.logger('dev'));
+    app.use($express.bodyParser());
+//    app.use($swift.dbManager.connector());
+    app.use($swift.router.endslash);
+    app.use(app.router);
+    app.use(function (req, res) { throw new Error().status = 404; });
+    app.use($express.errorHandler());
+});
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// swig
+//
+
 app.engine('.swig', $consolidate.swig);
 
 $swig.init({
-    'root': $swift.config.path.app + '/view',
-    'allowErrors': true
+    root: $swift.config.path.app + '/view',
+    allowErrors: true
 });
 
-app.configure(function () {
-    app.set('view engine', 'swig');
-    app.use($swift.express.favicon());
-    app.use($swift.express.static($path.join(__dirname, 'public')));
-    app.use($swift.express.logger('dev'));
-    app.use($swift.router.endslash);
-    app.use($swift.express.bodyParser());
-    app.use($swift.express.methodOverride());
-    app.use(app.router);
-});
-
-app.configure('development', function(){
-    app.use(function (req, res) { throw new Error().status = 404; });
-    app.use($swift.express.errorHandler());
-});
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// подключение модулей
+//
 
 $swift.modules
     .load('index')
